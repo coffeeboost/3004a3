@@ -20,10 +20,14 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    bell.h \
+    button.h \
+    car.h \
+    mainwindow.h \
+    safety.h \
+    sensor.h
 
 FORMS += \
-    dialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.

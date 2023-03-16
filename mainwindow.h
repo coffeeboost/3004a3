@@ -17,5 +17,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void press();
 };
 #endif // MAINWINDOW_H
