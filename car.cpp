@@ -27,3 +27,12 @@ Car::Car(int id){
     }
     this->id = id;
 }
+
+QString Car::moveCar(){
+    QString temp = this->currentFloor;
+    if(selectedFloors.size()>0){
+        this->currentFloor = selectedFloors.at(0);
+        selectedFloors.erase(selectedFloors.begin());
+    }
+    return "moved car from " + temp + " to " + this->currentFloor;
+}

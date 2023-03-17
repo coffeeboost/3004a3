@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <ecs.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,5 +21,7 @@ private:
     void press();
     void presss();
     void floorPanelPress();
+    void runSimulation();
+    ECS ecs;
 };
 #endif // MAINWINDOW_H

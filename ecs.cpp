@@ -9,7 +9,8 @@ ECS::ECS()
 void ECS::assignRequestToCar(QString currFloor, QString destFloor){
     cars[0].selectedFloors.push_back(currFloor);
     cars[0].selectedFloors.push_back(destFloor);
-
+//assign to the nearest elevator
+//assign to every other elevator
 }
 
 /*s ECS

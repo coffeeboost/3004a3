@@ -17,8 +17,8 @@
    <widget class="QGroupBox" name="floorPanelGroupBox">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>40</y>
+      <x>380</x>
+      <y>190</y>
       <width>261</width>
       <height>171</height>
      </rect>
@@ -89,8 +89,8 @@
    <widget class="QGroupBox" name="EmergencyButtonsGroupBox">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>320</y>
+      <x>30</x>
+      <y>190</y>
       <width>301</width>
       <height>131</height>
      </rect>
@@ -164,49 +164,11 @@
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="SystemLogGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>331</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>System Log</string>
-    </property>
-    <widget class="QListWidget" name="SystemLogListWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>311</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>o</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>uk</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>jjf</string>
-      </property>
-     </item>
-    </widget>
-   </widget>
    <widget class="QGroupBox" name="SettingsGroupBox">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>300</y>
+      <y>20</y>
       <width>191</width>
       <height>151</height>
      </rect>

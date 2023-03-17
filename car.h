@@ -3,11 +3,12 @@
 #include <button.h>
 #include <string>
 #include <vector>
+#include <QString>
 using namespace std;
 class Car {
     public:
         Car(int id);
-        string playVoiceMessage(string emergency);
+        string playVoiceMessage(string emergenzcy);
         void updateMessage(string message);
         int getCurrentFloor();
         void displayMessage(string message);
@@ -15,8 +16,9 @@ class Car {
         int getId();
         int getNextFloor();
         bool getIsInUse();
+        QString moveCar();
 
-      int currentFloor = 0;
+      QString currentFloor = 0;
       string message = "default message";
       bool isAscending = false;
       vector<Button> buttons;

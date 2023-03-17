@@ -4,6 +4,7 @@
 #include <string>
 #include <QString>
 using namespace std;
+#include <QDebug>
 
 class ECS
 {
@@ -14,6 +15,7 @@ public:
     string strategy = "default";
     void changeAllocationStrategy();
     void assignRequestToCar(QString,QString);
+//    void move
 };
 
 #endif // ECS_H
