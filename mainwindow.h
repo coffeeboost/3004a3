@@ -18,5 +18,7 @@ public:
 private:
     Ui::MainWindow *ui;
     void press();
+    void presss();
+    void floorPanelPress();
 };
 #endif // MAINWINDOW_H

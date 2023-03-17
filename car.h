@@ -6,7 +6,7 @@
 using namespace std;
 class Car {
     public:
-        Car();
+        Car(int id);
         string playVoiceMessage(string emergency);
         void updateMessage(string message);
         int getCurrentFloor();
@@ -16,15 +16,14 @@ class Car {
         int getNextFloor();
         bool getIsInUse();
 
-//    private:
-      int currentFloor;
-//      string displayMessage;
-      bool isAscending;
+      int currentFloor = 0;
+      string message = "default message";
+      bool isAscending = false;
       vector<Button> buttons;
-      vector<int>selectedFloors;
+      vector<QString> selectedFloors;
       int id;
-      string voiceMessage;
-      bool inUse;
+      string voiceMessage = "default voice message";
+      bool inUse = false;
 };
 
 #endif
