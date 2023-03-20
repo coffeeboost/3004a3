@@ -28,11 +28,26 @@ Car::Car(int id){
     this->id = id;
 }
 
-QString Car::moveCar(){
-    QString temp = this->currentFloor;
+void Car::moveCar(){
+    moveCar(false);
+}
+void Car::moveCar(bool isEmergency){
+    int temp = this->currentFloor;
+//    string x;
+//    x.append("door opening");
+//    qInfo(x.data());
+    if(isEmergency){
+        qInfo("door opening");
+        qInfo("door closing");
+    }
     if(selectedFloors.size()>0){
         this->currentFloor = selectedFloors.at(0);
         selectedFloors.erase(selectedFloors.begin());
     }
-    return "moved car from " + temp + " to " + this->currentFloor;
+
+    string x = "moved car from " + to_string(temp) + " to " + to_string(this->currentFloor);
+
+    qInfo("door opning");
+    qInfo("door closing");
+    qInfo(x.data());
 }

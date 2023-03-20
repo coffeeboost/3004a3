@@ -22,6 +22,8 @@ private:
     void presss();
     void floorPanelPress();
     void runSimulation();
+    void fireButtonPress();
+    void powerOutagePress();
     ECS ecs;
 };
 #endif // MAINWINDOW_H

@@ -1,4 +1,13 @@
 #include <safety.h>
+
+Safety:: Safety(){
+
+}
+
+void Safety::fireButtonPress(){
+    qInfo("there is a fire");
+    qInfo("moving to safety floor");
+}
 //class Safety {
 //public:
 //  Safety();

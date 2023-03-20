@@ -10,19 +10,20 @@ class Car {
         Car(int id);
         string playVoiceMessage(string emergenzcy);
         void updateMessage(string message);
-        int getCurrentFloor();
+        int getCurrentFloor();;
         void displayMessage(string message);
         bool addSelectedButton(int);
         int getId();
         int getNextFloor();
         bool getIsInUse();
-        QString moveCar();
+        void moveCar();
+        void moveCar(bool isEmergency);
 
-      QString currentFloor = 0;
+      int currentFloor = 0;
       string message = "default message";
       bool isAscending = false;
       vector<Button> buttons;
-      vector<QString> selectedFloors;
+      vector<int> selectedFloors;
       int id;
       string voiceMessage = "default voice message";
       bool inUse = false;

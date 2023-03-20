@@ -9,9 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->EmergencyHelpButton, &QPushButton::released, this, &MainWindow::press);
-    connect(ui->EmergencyFireButton, &QPushButton::released, this, &MainWindow::press);
+    connect(ui->EmergencyFireButton, &QPushButton::released, this, &MainWindow::fireButtonPress);
     connect(ui->EmergencyOverloadButton, &QPushButton::released, this, &MainWindow::press);
-    connect(ui->EmergencyPowerOutageButton, &QPushButton::released, this, &MainWindow::press);
+    connect(ui->EmergencyPowerOutageButton, &QPushButton::released, this, &MainWindow::powerOutagePress);
     connect(ui->EmergencydoorBlockButton, &QPushButton::released, this, &MainWindow::press);
 //    connect(ui->SettingsElevatorComboBox, &QPushButton::released, this, &MainWindow::press);
 //    connect(ui->SettingsFloorsComboBox, &QPushButton::released, this, &MainWindow::press);
@@ -23,6 +23,12 @@ MainWindow::MainWindow(QWidget *parent)
     this->ecs = ECS();
     if(ecs.strategy=="default") presss();
 
+}
+void MainWindow::powerOutagePress(){
+    this->ecs.powerOutagePress();
+}
+void MainWindow::fireButtonPress(){
+    this->ecs.fireButtonPress();
 }
 
 MainWindow::~MainWindow()
@@ -44,8 +50,10 @@ void MainWindow::floorPanelPress(){
     QString currentFloor = ui->floorPanelComboBox->currentText();
     QString destFloor = ui->floorPanelDestFloorComboBox->currentText();
     this->ecs.assignRequestToCar(currentFloor,destFloor);
-    QString log = currentFloor + "is added to floor requests";
-    qInfo(log.toLocal8Bit().data());
+    QString log = destFloor + " is added to floor requests";
+    qInfo("%s", log.toLocal8Bit().data());
+    string strategy = "one";
+    this->ecs.moveCars();
 
 }
 
@@ -62,6 +70,6 @@ void MainWindow::runSimulation() {
     ui->floorPanelDestFloorComboBox->addItem("4");
     ui->floorPanelDestFloorComboBox->addItem("5");
 
-    qInfo("testing");
+    qInfo("added floors to the simulator");
 
 }

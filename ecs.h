@@ -5,7 +5,7 @@
 #include <QString>
 using namespace std;
 #include <QDebug>
-
+#include <safety.h>
 class ECS
 {
 public:
@@ -13,9 +13,15 @@ public:
     vector<Car> cars;
     bool isEmergency = false;
     string strategy = "default";
+    string powerSource = "main";
+    int safeFloor = 0;
     void changeAllocationStrategy();
     void assignRequestToCar(QString,QString);
-//    void move
+    void moveCars();
+    void fireButtonPress();
+    void powerOutagePress();
+    void moveToSafeFloor();
+    Safety safety;
 };
 
 #endif // ECS_H
