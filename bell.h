@@ -1,13 +1,11 @@
 #ifndef BELL_H
 #define BELL_H
 #include <string>
+#include <QDebug>
 using namespace std;
 class Bell {
 public:
-  Bell(string name, string sound);
-  void ringBell();
-//private:
-  string name;
-  string sound;
+  Bell();
+  void ringBell(string sound);
 };
 #endif

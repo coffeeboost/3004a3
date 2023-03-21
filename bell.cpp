@@ -1,18 +1,8 @@
 #include <bell.h>
 
-//public:
-//  Bell(string name, string sound);
-//  void ringBell();
-//private:
-//  string name;
-//  string sound;
-//};
-
-Bell::Bell(string name, string sound){
-    this->name = name;
-    this->sound = sound;
+Bell::Bell(){
 }
 
-void Bell::ringBell(){
-
+void Bell::ringBell(string sound){
+    qInfo(sound.data());
 }

@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <QString>
+#include <bell.h>
+#include <sensor.h>
 using namespace std;
 class Car {
     public:
@@ -19,6 +21,7 @@ class Car {
         void moveCar();
         void moveCar(bool isEmergency);
 
+
       int currentFloor = 0;
       string message = "default message";
       bool isAscending = false;
@@ -27,6 +30,8 @@ class Car {
       int id;
       string voiceMessage = "default voice message";
       bool inUse = false;
+      Bell bell;
+      Sensor sensor;
 };
 
 #endif

@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <ecs.h>
-
+#include <button.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,6 +24,11 @@ private:
     void runSimulation();
     void fireButtonPress();
     void powerOutagePress();
+    void helpButtonPress();
+    void overloadButtonPress();
+    void doorBlockPress();
     ECS ecs;
+    Button panelOfButtons;
+    Button upDownButtons;
 };
 #endif // MAINWINDOW_H

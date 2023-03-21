@@ -8,21 +8,28 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->EmergencyHelpButton, &QPushButton::released, this, &MainWindow::press);
+    connect(ui->EmergencyHelpButton, &QPushButton::released, this, &MainWindow::helpButtonPress);
     connect(ui->EmergencyFireButton, &QPushButton::released, this, &MainWindow::fireButtonPress);
-    connect(ui->EmergencyOverloadButton, &QPushButton::released, this, &MainWindow::press);
+    connect(ui->EmergencyOverloadButton, &QPushButton::released, this, &MainWindow::overloadButtonPress);
     connect(ui->EmergencyPowerOutageButton, &QPushButton::released, this, &MainWindow::powerOutagePress);
-    connect(ui->EmergencydoorBlockButton, &QPushButton::released, this, &MainWindow::press);
-//    connect(ui->SettingsElevatorComboBox, &QPushButton::released, this, &MainWindow::press);
-//    connect(ui->SettingsFloorsComboBox, &QPushButton::released, this, &MainWindow::press);
+    connect(ui->EmergencydoorBlockButton, &QPushButton::released, this, &MainWindow::doorBlockPress);
     connect(ui->SettingsStartSimulationButton, &QPushButton::released, this, &MainWindow::runSimulation);
-//    connect(ui->floorPanelComboBox, &QPushButton::released, this, &MainWindow::press);
-//    connect(ui->floorPanelDestFloorComboBox, &QPushButton::released, this, &MainWindow::press);
     connect(ui->floorPanelButton, &QPushButton::released, this, &MainWindow::floorPanelPress);
 
-    this->ecs = ECS();
-    if(ecs.strategy=="default") presss();
+    this->panelOfButtons = Button("panel of buttons");
+    this->upDownButtons = Button("updown buttons");
 
+}
+//i decided to make this randomly trigger because the ECS does not control when people decide to block the door
+//but the ECS knows how to detect and react to these events
+void MainWindow::doorBlockPress(){
+    qInfo("the door block feature is built to randomly trigger throughout the functioning of this app");
+}
+void MainWindow::overloadButtonPress(){
+    qInfo("the overload features is built in to randomly trigger throughout the functioning of this app");
+}
+void MainWindow::helpButtonPress(){
+    this->ecs.helpButtonPress();
 }
 void MainWindow::powerOutagePress(){
     this->ecs.powerOutagePress();
@@ -54,21 +61,24 @@ void MainWindow::floorPanelPress(){
     qInfo("%s", log.toLocal8Bit().data());
     string strategy = "one";
     this->ecs.moveCars();
+    this->upDownButtons.isLight = true;
+    qInfo("the up or down button lit up");
+    this->panelOfButtons.isLight = true;
+    qInfo("the floor selection buttons lit up");
 
 }
 
 void MainWindow::runSimulation() {
+    QString numFloors = "5";
+    QString numElevators = "2";
+    numElevators = ui->SettingsElevatorComboBox->currentText();
+    numFloors = ui->SettingsFloorsComboBox->currentText();
+    this->ecs = ECS(numElevators.toInt());
 
-    ui->floorPanelComboBox->addItem("1");
-    ui->floorPanelComboBox->addItem("2");
-    ui->floorPanelComboBox->addItem("3");
-    ui->floorPanelComboBox->addItem("4");
-    ui->floorPanelComboBox->addItem("5");
-    ui->floorPanelDestFloorComboBox->addItem("1");
-    ui->floorPanelDestFloorComboBox->addItem("2");
-    ui->floorPanelDestFloorComboBox->addItem("3");
-    ui->floorPanelDestFloorComboBox->addItem("4");
-    ui->floorPanelDestFloorComboBox->addItem("5");
+    for(int i=1; i<numFloors.toInt()+1;i++){
+        ui->floorPanelComboBox->addItem(QString::number(i));
+        ui->floorPanelDestFloorComboBox->addItem(QString::number(i));
+    }
 
     qInfo("added floors to the simulator");
 

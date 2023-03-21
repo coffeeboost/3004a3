@@ -10,6 +10,7 @@ class ECS
 {
 public:
     ECS();
+    ECS(int numCars);
     vector<Car> cars;
     bool isEmergency = false;
     string strategy = "default";
@@ -21,6 +22,7 @@ public:
     void fireButtonPress();
     void powerOutagePress();
     void moveToSafeFloor();
+    void helpButtonPress();
     Safety safety;
 };
 

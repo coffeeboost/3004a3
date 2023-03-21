@@ -4,12 +4,10 @@
 using namespace std;
 class Button {
     public:
+    Button();
         Button(string name);
-        void pressButton();
-        void updateName();
-//    private:
         string name;
-        bool isPressed = false;
+        bool isLight=false;
 };
 
 #endif
